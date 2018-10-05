@@ -25,9 +25,18 @@ class Leaderboard {
     //
     let player;
     if (this.doesPlayerExist(name)) {
-      player = this.leadersMap[name];
+      player = this.leadersArray.filter((item, index) => {
+        if (item[name]) return this.leadersArray[index];
+      });
+      player[0][name].updateStats(winStatus);
+      console.log(this.leadersArray);
+      return this.leadersArray;
     } else {
       player = new Player(name);
+      player.updateStats(winStatus);
+      this.leadersMap[name] = player;
+      this.leadersArray.push(this.leadersMap);
+      return this.leadersArray;
     }
   }
 
@@ -42,6 +51,7 @@ class Leaderboard {
   getPlayerStats(name) {
     return this.leadersMap[name].getStats();
   }
+
 }
 
 module.exports = Leaderboard;

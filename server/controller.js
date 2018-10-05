@@ -24,16 +24,14 @@ const handlePostPlay = function(req, res) {
 };
 
 const handleFetchLeaderboard = function(req, res) {
-  //
-  // TODO
-  //
-  res.json([{
-    name: 'Not a real player',
-    wins: 1000,
-    losses: 0,
-    ties: 0,
-    winPercentage: '100.00',
-  }]);
+  const resultArray = [];
+  const leadersArray = leaderboard.getLeaderBoard();
+  leadersArray.forEach((i) => {
+    const name = (Object.keys(i)[0]);
+    resultArray.push(i[name]);
+  });
+  
+  res.json(resultArray);
 };
 
 module.exports = {
