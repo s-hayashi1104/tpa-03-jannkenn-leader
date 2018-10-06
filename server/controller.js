@@ -24,14 +24,8 @@ const handlePostPlay = function(req, res) {
 };
 
 const handleFetchLeaderboard = function(req, res) {
-  const resultArray = [];
   const leadersArray = leaderboard.getLeaderBoard();
-  leadersArray.forEach((i) => {
-    const name = (Object.keys(i)[0]);
-    resultArray.push(i[name]);
-  });
-  
-  res.json(resultArray);
+  res.json(leadersArray);
 };
 
 module.exports = {
