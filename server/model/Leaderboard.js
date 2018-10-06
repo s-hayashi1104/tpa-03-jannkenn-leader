@@ -33,16 +33,15 @@ class Leaderboard {
     return this.leadersMap[name].getStats();
   }
 
-  compareWinPercentage(mapObjOne, mapObjTwo){
-    if (parseInt(mapObjOne['winPercentage'], 10) < parseInt(mapObjTwo['winPercentage']), 10) {
+  compareWinPercentage(player, secondPlayer){
+    if (parseFloat(player.winPercentage, 10) < parseFloat(secondPlayer.winPercentage), 10) {
+      return -1;
+    }  
+    if (parseFloat(player.winPercentage, 10) > parseFloat(secondPlayer.winPercentage), 10) {
       return 1;
     }
-    if (parseInt(mapObjOne['winPercentage'], 10) > parseInt(mapObjTwo['winPercentage']), 10) {
-      return -1;
-    }   
     return 0;
   }
-
 }
 
 module.exports = Leaderboard;
