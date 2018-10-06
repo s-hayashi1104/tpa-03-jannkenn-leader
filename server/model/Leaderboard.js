@@ -34,13 +34,7 @@ class Leaderboard {
   }
 
   compareWinPercentage(player, secondPlayer){
-    if (parseFloat(player.winPercentage, 10) < parseFloat(secondPlayer.winPercentage), 10) {
-      return -1;
-    }  
-    if (parseFloat(player.winPercentage, 10) > parseFloat(secondPlayer.winPercentage), 10) {
-      return 1;
-    }
-    return 0;
+    return parseFloat(secondPlayer.winPercentage, 10) - parseFloat(player.winPercentage, 10);
   }
 }
 
